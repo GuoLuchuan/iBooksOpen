@@ -88,7 +88,7 @@
         
         
         CATransform3D transformblank = CATransform3DMakeRotation(-M_PI_2 / 1.01, 0.0, 1.0, 0.0);
-        transformblank.m34 = 1.0f / 100.0f;
+        transformblank.m34 = 1.0f / 250.0f;
         
         _bookView.cover.layer.anchorPoint = CGPointMake(0, 0.5);
         _bookView.cover.center = CGPointMake(0.0, _bookView.cover.bounds.size.height/2.0); //compensate for anchor offset
@@ -115,6 +115,9 @@
             
         } completion:^(BOOL finished) {
             if (finished) {
+                
+                _bookView.cover.layer.hidden = YES;
+                
                 if (completion != nil) {
                     completion();
                 }
