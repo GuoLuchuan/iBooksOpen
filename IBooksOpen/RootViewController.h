@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "BookView.h"
 
+typedef enum {
+    UIModalTransitionStyleOpenBooks = 0x01 << 7,
+
+} UIModalTransitionStyleCustom;
+
 @interface RootViewController : UIViewController
 {
     @protected
@@ -16,8 +21,8 @@
     
 }
 
-- (void)glcPresentViewController:(UIViewController *)viewController animated: (BOOL)animated completion:(void (^)(void))completion;
-
-- (void)glcDismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
+//- (void)glcPresentViewController:(UIViewController *)viewController animated: (BOOL)animated completion:(void (^)(void))completion;
+//
+//- (void)glcDismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
 
 @end

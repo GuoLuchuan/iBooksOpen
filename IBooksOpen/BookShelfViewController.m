@@ -55,19 +55,22 @@
         
         BookReadViewController *bookReadViewController = [[BookReadViewController alloc] init];
         
-        [self glcPresentViewController:bookReadViewController animated:YES completion:^{
-            NSLog(@"book open complete ");
+        
+        bookReadViewController.modalTransitionStyle = UIModalTransitionStyleOpenBooks;
+                
+        [self presentViewController:bookReadViewController animated:YES completion:^{
+            NSLog(@"complete");
         }];
         
         _isNeedOpen = NO;
     }
     else
     {
+                
         NSLog(@"close books");
-        [self glcDismissViewControllerAnimated:YES completion:^{
+
+        [self dismissModalViewControllerAnimated:YES];
         
-            NSLog(@"book close complete ");
-        }];
         _isNeedOpen = YES;
     }
     
