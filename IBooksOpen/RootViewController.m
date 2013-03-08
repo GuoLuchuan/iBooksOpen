@@ -148,6 +148,9 @@
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
 {
     if (_modalTransitionStyle == UIModalTransitionStyleOpenBooks) {
+        
+        NSAssert(_bookView, @"_bookView can not be nil");
+        
         _bookView.cover.layer.hidden = NO;
         
         CGFloat duringTime = DURING_TIME;
@@ -165,6 +168,9 @@
         } completion:^(BOOL finished) {
             
             if (finished) {
+                
+                [_bookView.content removeFromSuperview];
+                
                 if (completion != nil) {
                     
                     completion();
